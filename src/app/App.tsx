@@ -57,7 +57,7 @@ export default function App() {
     'https://images.unsplash.com/flagged/photo-1554176332-3d12cebb0089?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlZXJpZSUyMG5hdHVyZSUyMGZvZ3xlbnwxfHx8fDE3NzExOTM5NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
     'https://images.unsplash.com/photo-1762101467728-b15f7b30b16f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvY2N1bHQlMjB2aW50YWdlfGVufDF8fHx8MTc3MTE5Mzk2N3ww&ixlib=rb-4.1.0&q=80&w=1080',
     'https://images.unsplash.com/photo-1636850871282-30464d157c6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxteXN0ZXJpb3VzJTIwcG9ydHJhaXQlMjBkYXJrfGVufDF8fHx8MTc3MTE5Mzk2N3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    '../assets/fullflyeremailzoo.jpg',
+    '/fullflyeremailzoo.jpg',
     'https://images.unsplash.com/flagged/photo-1554176332-3d12cebb0089?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlZXJpZSUyMG5hdHVyZSUyMGZvZ3xlbnwxfHx8fDE3NzExOTM5NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
   ];
 
