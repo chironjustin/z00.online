@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import eyeLogo from 'figma:asset/a70301f4672b9465752ef0783edcdca5e8978530.png';
-import folderIcon from 'figma:asset/f600a7321c65b224ecf4249ef56e7bf74abee11d.png';
-import fileIcon from 'figma:asset/960816136233aab9f9345486144fd39ac1288f1a.png';
-import gatheringImage from 'figma:asset/98a6668630fdf8a41c472291598f3c6f97382297.png';
+import eyeLogo from '../assets/a70301f4672b9465752ef0783edcdca5e8978530.png';
+import folderIcon from '../asset/f600a7321c65b224ecf4249ef56e7bf74abee11d.png';
+import fileIcon from '../asset/960816136233aab9f9345486144fd39ac1288f1a.png';
+import gatheringImage from '../asset/98a6668630fdf8a41c472291598f3c6f97382297.png';
 
 export default function App() {
   const [password, setPassword] = useState('');
