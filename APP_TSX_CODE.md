@@ -24,7 +24,7 @@ export default function App() {
 
   // Countdown timer effect
   useEffect(() => {
-    const targetDate = new Date('2026-03-21T22:30:00+01:00'); // CET is UTC+1
+    const targetDate = new Date('2026-03-09T22:30:00+01:00'); // CET is UTC+1
     let interval: ReturnType<typeof setInterval>;
     
     const updateTimer = () => {
