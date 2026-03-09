@@ -1,4 +1,10 @@
 import { useState, useEffect } from 'react';
+import file01 from '/assets/ZOOWEBSITECONTENT/1.jpg'
+import file02 from '/assets/ZOOWEBSITECONTENT/2.jpg'
+import file03 from '/assets/ZOOWEBSITECONTENT/3.jpg'
+import file04 from '/assets/ZOOWEBSITECONTENT/4.jpg'
+import file05 from '/assets/ZOOWEBSITECONTENT/5.jpg'
+import file06 from '/assets/ZOOWEBSITECONTENT/6.jpg'
 import eyeLogo from '../assets/a70301f4672b9465752ef0783edcdca5e8978530.png';
 import folderIcon from '../assets/f600a7321c65b224ecf4249ef56e7bf74abee11d.png';
 import fileIcon from '../assets/960816136233aab9f9345486144fd39ac1288f1a.png';
@@ -51,14 +57,13 @@ export default function App() {
   }, []);
 
   const galleryImages = [
-    'https://images.unsplash.com/photo-1764037047349-d83e6c181ae7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxteXN0ZXJpb3VzJTIwZGFyayUyMG9jY3VsdHxlbnwxfHx8fDE3NzExOTM5NjV8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1763198217184-54225eee9851?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxteXN0aWNhbCUyMHN5bWJvbHMlMjBldGhlcmVhbHxlbnwxfHx8fDE3NzExOTM5NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1532191568455-f90e2806b900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmslMjBtaW5pbWFsfGVufDF8fHx8MTc3MTE5Mzk2Nnww&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/flagged/photo-1554176332-3d12cebb0089?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlZXJpZSUyMG5hdHVyZSUyMGZvZ3xlbnwxfHx8fDE3NzExOTM5NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1762101467728-b15f7b30b16f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvY2N1bHQlMjB2aW50YWdlfGVufDF8fHx8MTc3MTE5Mzk2N3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    'https://images.unsplash.com/photo-1636850871282-30464d157c6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxteXN0ZXJpb3VzJTIwcG9ydHJhaXQlMjBkYXJrfGVufDF8fHx8MTc3MTE5Mzk2N3ww&ixlib=rb-4.1.0&q=80&w=1080',
-  ];
-
+  file01,
+  file02,
+  file03,
+  file04,
+  file05,
+  file06,
+];
   // Define 6 different positions for images
   const imagePositions = [
     { top: '120px', left: '200px' },       // Position 1 - Top left
