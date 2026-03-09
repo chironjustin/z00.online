@@ -1,10 +1,4 @@
 import { useState, useEffect } from 'react';
-import file01 from '/assets/ZOOWEBSITECONTENT/1.jpg'
-import file02 from '/assets/ZOOWEBSITECONTENT/2.jpg'
-import file03 from '/assets/ZOOWEBSITECONTENT/3.jpg'
-import file04 from '/assets/ZOOWEBSITECONTENT/4.jpg'
-import file05 from '/assets/ZOOWEBSITECONTENT/5.jpg'
-import file06 from '/assets/ZOOWEBSITECONTENT/6.jpg'
 import eyeLogo from '../assets/a70301f4672b9465752ef0783edcdca5e8978530.png';
 import folderIcon from '../assets/f600a7321c65b224ecf4249ef56e7bf74abee11d.png';
 import fileIcon from '../assets/960816136233aab9f9345486144fd39ac1288f1a.png';
@@ -56,13 +50,13 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const galleryImages = [
-  file01,
-  file02,
-  file03,
-  file04,
-  file05,
-  file06,
+const galleryImages = [
+  '/assets/ZOOWEBSITECONTENT/1.jpg',
+  '/assets/ZOOWEBSITECONTENT/2.jpg',
+  '/assets/ZOOWEBSITECONTENT/3.jpg',
+  '/assets/ZOOWEBSITECONTENT/4.jpg',
+  '/assets/ZOOWEBSITECONTENT/5.jpg',
+  '/assets/ZOOWEBSITECONTENT/6.jpg',
 ];
   // Define 6 different positions for images
   const imagePositions = [
