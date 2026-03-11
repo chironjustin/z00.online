@@ -29,7 +29,7 @@ export default function Home() {
   const [isSecondFolderAuthenticated, setIsSecondFolderAuthenticated] = useState(false);
   const [showSecondFolderError, setShowSecondFolderError] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [isMusicOn, setIsMusicOn] = useState(true);
+  const [isMusicOn, setIsMusicOn] = useState(false);
   const [musicStarted, setMusicStarted] = useState(false);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -52,27 +52,13 @@ export default function Home() {
   useEffect(() => {
     if (!audioRef.current || isAuthenticated || musicStarted) return;
 
-    const tryPlayMusic = () => {
-      if (audioRef.current && isMusicOn) {
-        audioRef.current.play()
-          .then(() => {
-            setMusicStarted(true);
-          })
-          .catch(err => {
-            console.log('Autoplay blocked, waiting for user interaction');
-          });
-      }
-    };
-
-    // Try to play immediately
-    tryPlayMusic();
-
-    // Add click listener to start music on first interaction if autoplay failed
+    // Add click listener to start music on first interaction
     const handleFirstInteraction = () => {
-      if (!musicStarted && isMusicOn && audioRef.current) {
+      if (!musicStarted && audioRef.current) {
         audioRef.current.play()
           .then(() => {
             setMusicStarted(true);
+            setIsMusicOn(true); // Update button to show pause symbol
           })
           .catch(err => console.log('Audio play failed:', err));
       }
@@ -85,7 +71,7 @@ export default function Home() {
       document.removeEventListener('click', handleFirstInteraction);
       document.removeEventListener('keydown', handleFirstInteraction);
     };
-  }, [isAuthenticated, isMusicOn, musicStarted]);
+  }, [isAuthenticated, musicStarted]);
 
   // Handle music playback
   useEffect(() => {
@@ -381,11 +367,17 @@ export default function Home() {
       {/* Music Toggle Button - Top Right */}
       <button
         onClick={() => setIsMusicOn(!isMusicOn)}
-        className="absolute top-6 right-6 text-[#3a3a3a] hover:text-[#1a1a1a] transition-colors duration-300 text-[10px] tracking-[0.2em] subtle-wave"
-        style={{ fontFamily: "'Cormorant Garamond', serif" }}
+        className="absolute top-6 right-6 text-[#3a3a3a] hover:text-[#1a1a1a] transition-colors duration-300 text-base subtle-wave flex items-center justify-center"
+        style={{ 
+          fontFamily: "'Cormorant Garamond', serif",
+          width: '24px',
+          height: '24px',
+          fontWeight: isMusicOn ? '900' : 'normal',
+          letterSpacing: isMusicOn ? '1px' : 'normal'
+        }}
         aria-label="Toggle music"
       >
-        {isMusicOn ? 'MUSIC OFF' : 'MUSIC ON'}
+        {isMusicOn ? '||' : '▶'}
       </button>
 
       <div className="w-full max-w-xs">
