@@ -1,14 +1,4 @@
-import image_78dde3b42900b224f6c3b336f9206edea935f26b from 'figma:asset/78dde3b42900b224f6c3b336f9206edea935f26b.png'
-import image_2027a60629ba4b35826c8955d3093a3ee97bff89 from 'figma:asset/2027a60629ba4b35826c8955d3093a3ee97bff89.png'
-import image_4cf9e0e3ac2cd5b86d76b3219b268bdf468e53af from 'figma:asset/4cf9e0e3ac2cd5b86d76b3219b268bdf468e53af.png'
-import image_05bb9db8f082d9839e99cad1a93bdd8818a79f67 from 'figma:asset/05bb9db8f082d9839e99cad1a93bdd8818a79f67.png'
-import image_3feb12ec293f0c6a5b02b53bde4d1f360474b603 from 'figma:asset/3feb12ec293f0c6a5b02b53bde4d1f360474b603.png'
-import image_05f8943f6cc1cb1040fb70a7c35ca74cec3b0150 from 'figma:asset/05f8943f6cc1cb1040fb70a7c35ca74cec3b0150.png'
-import { useState, useEffect, useRef } from 'react';
-import eyeLogo from 'figma:asset/a70301f4672b9465752ef0783edcdca5e8978530.png';
-import folderIcon from 'figma:asset/f600a7321c65b224ecf4249ef56e7bf74abee11d.png';
-import fileIcon from 'figma:asset/960816136233aab9f9345486144fd39ac1288f1a.png';
-import gatheringImage from 'figma:asset/98a6668630fdf8a41c472291598f3c6f97382297.png';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [password, setPassword] = useState('');
