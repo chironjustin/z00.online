@@ -30,6 +30,7 @@ export default function Home() {
   const [showSecondFolderError, setShowSecondFolderError] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isMusicOn, setIsMusicOn] = useState(true);
+  const [musicStarted, setMusicStarted] = useState(false);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -37,6 +38,7 @@ export default function Home() {
   useEffect(() => {
     audioRef.current = new Audio('/assets/background-music.mp3');
     audioRef.current.loop = true;
+    audioRef.current.volume = 1.0;
     
     return () => {
       if (audioRef.current) {
@@ -45,6 +47,45 @@ export default function Home() {
       }
     };
   }, []);
+
+  // Attempt to start music immediately on mount
+  useEffect(() => {
+    if (!audioRef.current || isAuthenticated || musicStarted) return;
+
+    const tryPlayMusic = () => {
+      if (audioRef.current && isMusicOn) {
+        audioRef.current.play()
+          .then(() => {
+            setMusicStarted(true);
+          })
+          .catch(err => {
+            console.log('Autoplay blocked, waiting for user interaction');
+          });
+      }
+    };
+
+    // Try to play immediately
+    tryPlayMusic();
+
+    // Add click listener to start music on first interaction if autoplay failed
+    const handleFirstInteraction = () => {
+      if (!musicStarted && isMusicOn && audioRef.current) {
+        audioRef.current.play()
+          .then(() => {
+            setMusicStarted(true);
+          })
+          .catch(err => console.log('Audio play failed:', err));
+      }
+    };
+
+    document.addEventListener('click', handleFirstInteraction);
+    document.addEventListener('keydown', handleFirstInteraction);
+
+    return () => {
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('keydown', handleFirstInteraction);
+    };
+  }, [isAuthenticated, isMusicOn, musicStarted]);
 
   // Handle music playback
   useEffect(() => {
