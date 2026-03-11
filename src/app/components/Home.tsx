@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
-// Asset paths - gallery images to be provided by user
-const image_78dde3b42900b224f6c3b336f9206edea935f26b = '/assets/gallery-1.jpg';
-const image_2027a60629ba4b35826c8955d3093a3ee97bff89 = '/assets/gallery-2.jpg';
-const image_4cf9e0e3ac2cd5b86d76b3219b268bdf468e53af = '/assets/gallery-3.jpg';
-const image_05bb9db8f082d9839e99cad1a93bdd8818a79f67 = '/assets/gallery-4.jpg';
-const image_3feb12ec293f0c6a5b02b53bde4d1f360474b603 = '/assets/gallery-5.jpg';
-const image_05f8943f6cc1cb1040fb70a7c35ca74cec3b0150 = '/assets/gallery-6.jpg';
+// Asset paths
+const image_78dde3b42900b224f6c3b336f9206edea935f26b = '/assets/gallery-1.png';
+const image_2027a60629ba4b35826c8955d3093a3ee97bff89 = '/assets/gallery-2.png';
+const image_4cf9e0e3ac2cd5b86d76b3219b268bdf468e53af = '/assets/gallery-3.png';
+const image_05bb9db8f082d9839e99cad1a93bdd8818a79f67 = '/assets/gallery-4.png';
+const image_3feb12ec293f0c6a5b02b53bde4d1f360474b603 = '/assets/gallery-5.png';
+const image_05f8943f6cc1cb1040fb70a7c35ca74cec3b0150 = '/assets/gallery-6.png';
 
 const eyeLogo = '/assets/eye-logo.png';
 const folderIcon = '/assets/folder-icon.png';
