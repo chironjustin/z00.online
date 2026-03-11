@@ -367,17 +367,31 @@ export default function Home() {
       {/* Music Toggle Button - Top Right */}
       <button
         onClick={() => setIsMusicOn(!isMusicOn)}
-        className="absolute top-6 right-6 text-[#3a3a3a] hover:text-[#1a1a1a] transition-colors duration-300 text-base subtle-wave flex items-center justify-center"
+        className="absolute top-6 right-6 text-[#3a3a3a] hover:text-[#1a1a1a] transition-colors duration-300 subtle-wave flex items-center justify-center"
         style={{ 
-          fontFamily: "'Cormorant Garamond', serif",
           width: '24px',
           height: '24px',
-          fontWeight: isMusicOn ? '900' : 'normal',
-          letterSpacing: isMusicOn ? '1px' : 'normal'
         }}
         aria-label="Toggle music"
       >
-        {isMusicOn ? '||' : '▶'}
+        {isMusicOn ? (
+          // Pause symbol - two thick vertical bars
+          <div className="flex items-center justify-center gap-[3px]">
+            <div className="w-[3px] h-[14px] bg-[#3a3a3a]" style={{ transition: 'background-color 0.3s' }}></div>
+            <div className="w-[3px] h-[14px] bg-[#3a3a3a]" style={{ transition: 'background-color 0.3s' }}></div>
+          </div>
+        ) : (
+          // Play symbol - right-pointing triangle
+          <div 
+            className="w-0 h-0"
+            style={{
+              borderLeft: '10px solid #3a3a3a',
+              borderTop: '7px solid transparent',
+              borderBottom: '7px solid transparent',
+              transition: 'border-left-color 0.3s'
+            }}
+          ></div>
+        )}
       </button>
 
       <div className="w-full max-w-xs">
