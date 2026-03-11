@@ -1,5 +1,18 @@
 import { useState, useEffect } from 'react';
 
+// Asset paths - gallery images to be provided by user
+const image_78dde3b42900b224f6c3b336f9206edea935f26b = '/assets/gallery-1.jpg';
+const image_2027a60629ba4b35826c8955d3093a3ee97bff89 = '/assets/gallery-2.jpg';
+const image_4cf9e0e3ac2cd5b86d76b3219b268bdf468e53af = '/assets/gallery-3.jpg';
+const image_05bb9db8f082d9839e99cad1a93bdd8818a79f67 = '/assets/gallery-4.jpg';
+const image_3feb12ec293f0c6a5b02b53bde4d1f360474b603 = '/assets/gallery-5.jpg';
+const image_05f8943f6cc1cb1040fb70a7c35ca74cec3b0150 = '/assets/gallery-6.jpg';
+
+const eyeLogo = '/assets/eye-logo.png';
+const folderIcon = '/assets/folder-icon.png';
+const fileIcon = '/assets/file-icon.png';
+const gatheringImage = '/assets/gathering-image.png';
+
 export default function Home() {
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -16,23 +29,6 @@ export default function Home() {
   const [isSecondFolderAuthenticated, setIsSecondFolderAuthenticated] = useState(false);
   const [showSecondFolderError, setShowSecondFolderError] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [isMuted, setIsMuted] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  // Auto-play audio on mount
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.play().catch(error => {
-        console.log("Autoplay prevented:", error);
-        // If autoplay is blocked, unmute on first click
-        const playOnInteraction = () => {
-          audioRef.current?.play();
-          document.removeEventListener('click', playOnInteraction);
-        };
-        document.addEventListener('click', playOnInteraction);
-      });
-    }
-  }, []);
 
   // Countdown timer effect
   useEffect(() => {
@@ -303,26 +299,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#888888] flex items-center justify-center p-6 relative" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-      {/* Audio Element */}
-      <audio 
-        ref={audioRef}
-        loop
-        autoPlay
-        muted={isMuted}
-      >
-        <source src="/assets/background-music.mp3" type="audio/mpeg" />
-      </audio>
-
-      {/* Mute/Unmute Button - Top Right Corner */}
-      <button
-        onClick={() => setIsMuted(!isMuted)}
-        className="fixed top-6 right-6 z-50 text-[#2a2a2a] hover:text-black transition-colors text-xs tracking-[0.3em]"
-        style={{ fontFamily: "'Cormorant Garamond', serif" }}
-      >
-        {isMuted ? '♪' : '♪'}
-        <span className="ml-1 text-[8px]">{isMuted ? 'OFF' : 'ON'}</span>
-      </button>
-
       <div className="w-full max-w-xs">
         {/* Wobbling Eye Logo */}
         <div className="mb-10 flex justify-center subtle-wave">
