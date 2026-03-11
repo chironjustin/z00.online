@@ -1,4 +1,4 @@
-const pageImage = '/assets/page1-image.png';
+const pageImage = '/assets/page-image.png';
 
 export default function Page1() {
   return (
