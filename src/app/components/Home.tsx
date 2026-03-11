@@ -29,7 +29,7 @@ export default function Home() {
   const [isSecondFolderAuthenticated, setIsSecondFolderAuthenticated] = useState(false);
   const [showSecondFolderError, setShowSecondFolderError] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [isMusicOn, setIsMusicOn] = useState(false);
+  const [isMusicOn, setIsMusicOn] = useState(true);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
