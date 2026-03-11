@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Asset paths
 const image_78dde3b42900b224f6c3b336f9206edea935f26b = '/assets/gallery-1.png';
@@ -29,6 +29,44 @@ export default function Home() {
   const [isSecondFolderAuthenticated, setIsSecondFolderAuthenticated] = useState(false);
   const [showSecondFolderError, setShowSecondFolderError] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [isMusicOn, setIsMusicOn] = useState(false);
+  
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Initialize audio element
+  useEffect(() => {
+    audioRef.current = new Audio('/assets/background-music.mp3');
+    audioRef.current.loop = true;
+    
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
+
+  // Handle music playback
+  useEffect(() => {
+    if (!audioRef.current) return;
+
+    if (isMusicOn && !isAuthenticated) {
+      audioRef.current.play().catch(err => console.log('Audio play failed:', err));
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isMusicOn, isAuthenticated]);
+
+  // Stop music when authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      setIsMusicOn(false);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+    }
+  }, [isAuthenticated]);
 
   // Countdown timer effect
   useEffect(() => {
@@ -299,6 +337,16 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#888888] flex items-center justify-center p-6 relative" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+      {/* Music Toggle Button - Top Right */}
+      <button
+        onClick={() => setIsMusicOn(!isMusicOn)}
+        className="absolute top-6 right-6 text-[#3a3a3a] hover:text-[#1a1a1a] transition-colors duration-300 text-[10px] tracking-[0.2em] subtle-wave"
+        style={{ fontFamily: "'Cormorant Garamond', serif" }}
+        aria-label="Toggle music"
+      >
+        {isMusicOn ? 'MUSIC OFF' : 'MUSIC ON'}
+      </button>
+
       <div className="w-full max-w-xs">
         {/* Wobbling Eye Logo */}
         <div className="mb-10 flex justify-center subtle-wave">
